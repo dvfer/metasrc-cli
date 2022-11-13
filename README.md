@@ -22,3 +22,25 @@ Para salir
 ```
 exit
 ```
+## Ejemplo
+![](/img/metacli-uso.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
