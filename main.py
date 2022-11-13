@@ -34,8 +34,11 @@ while True:
     r = requests.get(URL)
 
     soup = BeautifulSoup(r.content,"lxml")
+    print("Items iniciales:")
+    get_initial_items(soup)
+    print("")
     print("Items con mayor winrate:")
     get_items(soup)
     print("")
-    print("orden de habilidades:")
+    print("Orden de habilidades:")
     get_skill_table(soup)
