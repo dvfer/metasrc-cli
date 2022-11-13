@@ -1,5 +1,6 @@
 # MetaCLI
 ![](img/metacli.png)
+
 MetaCLI es un sistema de informacion desde la consola que despliega informacion sobre un campeón haciendo scrapping en la pagina www.metasrc.com.
 ### Librerias utilizadas.
 - Beautifulsoup4
