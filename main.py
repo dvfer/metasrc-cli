@@ -32,13 +32,13 @@ while True:
     Champ, Rol = (arg.strip().split(" "))
     URL = f"https://www.metasrc.com/5v5/champion/{Champ}/{Rol}"
     r = requests.get(URL)
-
     soup = BeautifulSoup(r.content,"lxml")
-    print(f"Items iniciales para {Champ} {Rol}:")
+    print(f"Items iniciales para \033[1m\033[4m{Champ.upper()} {Rol.upper()}" + '\033[0m\033[0m:')
     get_initial_items(soup)
     print("")
-    print(f"Items para {Champ} {Rol} con mayor winrate:")
+    print(f"Items para \033[1m\033[4m{Champ.upper()} {Rol.upper()}" + '\033[0m\033[0m:')
     get_items(soup)
     print("")
     print("Orden de habilidades:")
     get_skill_table(soup)
+
