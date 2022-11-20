@@ -23,7 +23,6 @@ Nota:
     - Ignorar espacios
 Ej: Kha'Zix -> Khasix
     Miss Fortune -> Missfortune
-
 """)
 Champ = ''
 Rol = 'default'
@@ -49,7 +48,8 @@ while True:
     elif( len(argsListed) > 2 ):
         print("Demasiados argumentos")
         continue
-  
+    print(f"Query champ {Champ}, rol {Rol}")
+    
     URL = const.genURL(Champ,Rol)
 
     i = 1   
