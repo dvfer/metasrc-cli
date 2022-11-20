@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-from items import *
-from skills import *
+from functions import items
+from functions import skills
 
 
 
@@ -30,15 +30,21 @@ while True:
         break
     
     Champ, Rol = (arg.strip().split(" "))
-    URL = f"https://www.metasrc.com/5v5/champion/{Champ}/{Rol}"
-    r = requests.get(URL)
+    URL = f"https://www.metasrc.com/5v5/champion/{Champ}/{Rol}"        
+    while True:
+        try:
+            r = requests.get(URL)
+            break
+        except requests.exceptions.RequestException as e:
+            
+            print("Oops! reintentando :)")
     soup = BeautifulSoup(r.content,"lxml")
     print(f"Items iniciales para \033[1m\033[4m{Champ.upper()} {Rol.upper()}" + '\033[0m\033[0m:')
-    get_initial_items(soup)
+    items.get_initial_items(soup)
     print("")
     print(f"Items para \033[1m\033[4m{Champ.upper()} {Rol.upper()}" + '\033[0m\033[0m:')
-    get_items(soup)
+    items.get_items(soup)
     print("")
     print("Orden de habilidades:")
-    get_skill_table(soup)
+    skills.get_skill_table(soup)
 
