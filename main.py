@@ -21,7 +21,7 @@ Ejemplo: ashe jungle
 Nota: 
     - Ignorar apóstrofo (')
     - Ignorar espacios
-Ej: Kha'Zix -> Khasix
+Ej: Kha'Zix -> Khazix
     Miss Fortune -> Missfortune
 """)
 Champ = ''
