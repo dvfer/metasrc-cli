@@ -5,28 +5,29 @@ from recursos import items
 from recursos import skills
 from recursos import const
 
-
-print("""
-=======================================================
-███╗   ███╗███████╗████████╗ █████╗  ██████╗██╗     ██╗
-████╗ ████║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║     ██║
-██╔████╔██║█████╗     ██║   ███████║██║     ██║     ██║
-██║╚██╔╝██║██╔══╝     ██║   ██╔══██║██║     ██║     ██║
-██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╗███████╗██║
-╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚══════╝╚═╝
-=======================================================
-Formato: Campeon {rol}
-Roles: top - jungle - mid - adc - support
-Ejemplo: ashe jungle
-Nota: 
-    - Ignorar apóstrofo (')
-    - Ignorar espacios
-Ej: Kha'Zix -> Khazix
-    Miss Fortune -> Missfortune
-""")
-Champ = ''
-Rol = 'default'
+def Hello():
+    print("""
+    =======================================================
+    ███╗   ███╗███████╗████████╗ █████╗  ██████╗██╗     ██╗
+    ████╗ ████║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║     ██║
+    ██╔████╔██║█████╗     ██║   ███████║██║     ██║     ██║
+    ██║╚██╔╝██║██╔══╝     ██║   ██╔══██║██║     ██║     ██║
+    ██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╗███████╗██║
+    ╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚══════╝╚═╝
+    =======================================================
+    Formato: Campeon {rol}
+    Roles: top - jungle - mid - adc - support
+    Ejemplo: ashe jungle
+    Nota: 
+        - Ignorar apóstrofo (')
+        - Ignorar espacios
+    Ej: Kha'Zix -> Khazix
+        Miss Fortune -> Missfortune
+    """)
+Hello()
 while True:
+    Champ = ''
+    Rol = 'default'
     args = input(">> ")
     if args == "exit":
         break
@@ -61,8 +62,8 @@ while True:
         except requests.exceptions.RequestException as e:
             print(f"Oops! problemas, especificamente \'{e}\', reintento n {i} :)")
             i += 1
-    if i >= 6:
-        continue
+    if i >= 6: 
+        break
 
     # si existe redirección implica que el rol fue mal escrito y almacenamos el url de la redirección con el rol default
     if r.history:
@@ -70,10 +71,11 @@ while True:
 
 
     soup = BeautifulSoup(r.content,"lxml")
-    print(f"Items iniciales para \033[1m\033[4m{Champ.upper()} {Rol.upper()}" + '\033[0m\033[0m:')
+    print(f'\033[1m\033[4m{Champ.upper()} {Rol.upper()}' + '\033[0m\033[0m:')
+    print("Items iniciales:")
     items.get_initial_items(soup)
     print("")
-    print(f"Items para \033[1m\033[4m{Champ.upper()} {Rol.upper()}" + '\033[0m\033[0m:')
+    print('Items:')
     items.get_items(soup)
     print("")
     print("Orden de habilidades:")
